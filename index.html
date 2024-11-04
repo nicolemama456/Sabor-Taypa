@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabor Taypa</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f3f3f3;
+      color: #333;
+    }
+    header {
+      background-color: #ff6347;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.8em;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #ff8c00;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff6347;
+    }
+    .content {
+      padding: 20px;
+    }
+    .category {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .category h2 {
+      color: #ff6347;
+    }
+    .category button {
+      background-color: #ff8c00;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    .category button:hover {
+      background-color: #ff6347;
+    }
+    /* Estilo del formulario */
+    .form-container {
+      display: none;
+      background-color: rgba(0,0,0,0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+    .form-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      width: 300px;
+      text-align: center;
+    }
+    .form-content input, .form-content button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      font-size: 1em;
+    }
+    .form-content button {
+      background-color: #ff6347;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .form-content button:hover {
+      background-color: #ff8c00;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header>Sabor Taypa</header>
+  
+  <!-- Navegación -->
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#historia">Historia</a>
+    <a href="#carta">Carta</a>
+    <a href="#bebidas">Bebidas del Perú</a>
+  </nav>
+  
+  <!-- Contenido Principal -->
+  <div class="content" id="inicio">
+    <div class="category">
+      <h2>Inicio</h2>
+      <p>¡Bienvenidos a Sabor Taypa! Disfruta de lo mejor de la gastronomía peruana.</p>
+      <button onclick="showForm()">Registro de Cliente</button>
+    </div>
+  </div>
+  
+  <div class="content" id="historia">
+    <div class="category">
+      <h2>Nuestra Historia</h2>
+      <p>Conoce cómo nació Sabor Taypa y nuestra pasión por la gastronomía peruana.</p>
+      <button onclick="alert('Redirigiendo a Historia')">Ver Más</button>
+    </div>
+  </div>
+  
+  <div class="content" id="carta">
+    <div class="category">
+      <h2>Carta</h2>
+      <p>Explora nuestros deliciosos platos de la Costa, Sierra y Selva del Perú.</p>
+      <button onclick="alert('Redirigiendo a Carta')">Ver Más</button>
+    </div>
+    <div class="category">
+      <h3>Platos de la Costa</h3>
+      <p>Ceviche, Arroz con Mariscos, Jalea Mixta.</p>
+      <button onclick="alert('Redirigiendo a Platos de la Costa')">Ver Más</button>
+    </div>
+    <div class="category">
+      <h3>Platos de la Sierra</h3>
+      <p>Pachamanca, Trucha Frita, Cuy Chactado.</p>
+      <button onclick="alert('Redirigiendo a Platos de la Sierra')">Ver Más</button>
+    </div>
+    <div class="category">
+      <h3>Platos de la Selva</h3>
+      <p>Juane, Tacacho con Cecina, Inchicapi.</p>
+      <button onclick="alert('Redirigiendo a Platos de la Selva')">Ver Más</button>
+    </div>
+  </div>
+  
+  <div class="content" id="bebidas">
+    <div class="category">
+      <h2>Bebidas del Perú</h2>
+      <p>Prueba nuestras refrescantes bebidas: Chicha Morada, Pisco Sour, y más.</p>
+      <button onclick="alert('Redirigiendo a Bebidas del Perú')">Ver Más</button>
+    </div>
+  </div>
+  
+  <!-- Formulario de Registro -->
+  <div class="form-container" id="formContainer">
+    <div class="form-content">
+      <h3>Registro de Cliente</h3>
+      <input type="text" placeholder="Nombre" id="nombre">
+      <input type="email" placeholder="Correo Electrónico" id="correo">
+      <button onclick="registerClient()">Registrarse</button>
+      <button onclick="closeForm()">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar el formulario de registro
+    function showForm() {
+      document.getElementById("formContainer").style.display = "flex";
+    }
+    
+    // Cerrar el formulario de registro
+    function closeForm() {
+      document.getElementById("formContainer").style.display = "none";
+    }
+    
+    // Función para registrar al cliente
+    function registerClient() {
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      
+      if (nombre && correo) {
+        alert(`¡Gracias ${nombre} por registrarte! Pronto recibirás novedades en ${correo}.`);
+        closeForm();
+      } else {
+        alert("Por favor, completa todos los campos.");
+      }
+    }
+  </script>
+</body>
+</html>
